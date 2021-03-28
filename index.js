@@ -6,6 +6,7 @@ require('dotenv').config()
 const MongoClient = require('mongodb').MongoClient;
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.a6ygo.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 
+//https://git.heroku.com/pure-harbor-99045.git
 
 
 const app = express()
@@ -66,6 +67,4 @@ client.connect(err => {
 
 
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+app.listen(process.env.PORT  || port)
